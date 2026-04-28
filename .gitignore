@@ -1,0 +1,11 @@
+node_modules/
+dist/
+*.js.map
+__pycache__/
+*.py[cod]
+.env
+.venv
+venv/
+env/
+backup/
+output/
