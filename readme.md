@@ -1,11 +1,11 @@
 # mixi-backup
 
-mixiの自分の日記を全てバックアップするPythonツールです。  
+mixiの自分の日記を全てバックアップするTypeScriptツールです。  
 ログインして日記一覧を取得し、各日記の本文・コメント・写真をローカルに保存します。
 
 ## 機能
 
-- メールアドレスとパスワードでログイン
+- メールアドレスとパスワードでログイン（Node.js内蔵の`fetch`を使用）
 - 全ページの日記一覧を自動取得（ページネーション対応）
 - 各日記の本文・日時をHTML/JSONで保存
 - 各日記に紐づくコメント（投稿者・本文・日時）を保存
@@ -14,13 +14,17 @@ mixiの自分の日記を全てバックアップするPythonツールです。
 ## セットアップ
 
 ```bash
-pip install -r requirements.txt
+npm install
 ```
 
 ## 使い方
 
 ```bash
-python mixi_backup.py --email your@email.com --password yourpassword --output ./backup
+# ビルド
+npm run build
+
+# 実行
+node dist/mixi_backup.js --email your@email.com --password yourpassword --output ./backup
 ```
 
 | オプション | 説明 | デフォルト |
@@ -44,8 +48,7 @@ backup/
 ## テスト
 
 ```bash
-pip install pytest
-python -m pytest tests/ -v
+npm test
 ```
 
 ## 注意事項
